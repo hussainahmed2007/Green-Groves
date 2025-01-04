@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jquery Water Ripple Effect</title>
+  <!-- jQuery Library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- ripples.js Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      color: #fff;
+      font-size: 16px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-image: url(https://i.postimg.cc/XvT12qdD/3.jpg);
+      background-size: cover;
+      background-position: 50% 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    section {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 50px;
+      border-radius: 10px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    .link-area {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 15px;
+      border-radius: 40px;
+      background: tomato;
+    }
+    .link-area a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <header>
+      <h1>Jquery Water Ripple Effect</h1>
+      <h2>A nice Jquery Plugin for your Website</h2>
+    </header>
+  </section>
+
+  <div class="link-area">
+    <a href="https://www.youtube.com/channel/UCki4IDK86E6_pDtptmsslow" target="_blank">Click for More</a>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Apply ripple effect on the body
+      $('body').ripples({
+        resolution: 512,
+        dropRadius: 20, // The size of ripple drops
+        perturbance: 0.04, // The intensity of the ripple
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thank You for Your Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden; /* Prevents scrolling due to video */
+        }
+        video.background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensures video stays behind content */
+        }
+        header {
+            background-color: rgba(76, 175, 80, 0.9); /* Semi-transparent green */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .content p {
+            font-size: 18px;
+            color: #555;
+        }
+        footer {
+            background-color: rgba(76, 175, 80, 0.9); /* Semi-transparent green */
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .back-btn {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+        .back-btn a {
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .back-btn a:hover {
+            background-color: #45a049;
+        }
+        /* Video styling */
+  
+        /* GIF Styling */
+        .gif-container {
+            margin-top: 20px;
+        }
+        .gif-container img {
+            width: 200px; /* Adjust size of the GIF */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video Background -->
+    <video autoplay muted loop class="background-video">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <h1>Thank You!</h1>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <h2>Thank You for Your Review</h2>
+            <p>Your feedback is incredibly important to us, and we truly appreciate the time you took to share your thoughts. We strive to continually improve our services, and your review will help us do just that.</p>
+            <p>We are grateful for your support and look forward to serving you again soon!</p>
+
+       
+
+     
+            <div class="back-btn">
+                <a href="javascript:history.back()">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

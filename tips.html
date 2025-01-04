@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardening Tips and Tricks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+           
+            /* background-image: url("https://i.pinimg.com/736x/15/ea/c7/15eac734322d95abf739458accaf304e.jpg"); */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+        video.background-video {
+            position: absolute;
+            top: 30;
+            left: 0;
+            width: 100%;
+            height:1900px;
+            object-fit: cover;
+            z-index: -1; /* Ensures video stays behind content */
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .video {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        .navbar {
+    box-shadow: 0 4px 6px black;
+  background-color: Black;}
+  .carousel-inner img {
+  aspect-ratio: 13 / 9;
+  object-fit: cover; 
+}
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .video:hover iframe {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        .focused-card {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            .videos {
+                flex-direction: column;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hie{
+            height:250px;
+            width:250px;
+        }  
+        .card{
+          background-color:rgba(0, 0,0,0.7);
+          color: white;
+        }
+        /* Footer Styles */
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="background-video">
+        <source src="pin.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-lg">
+        <div class="container-fluid">
+          <img src="logo.png" alt="logo" width="100px">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link  " aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="tips.html" >
+                   Gardening Tips & Tricks
+                </a>
+             
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="review.html" >
+                    Reviews
+                </a>
+             
+              </li>
+         
+            </ul>
+           
+          </div>
+        </div>
+      </nav>
+       <div class="container">
+        <div class="header">
+            <h1 style="color: #16ff0e; font-size: 50px; ">Gardening Tips and Tricks</h1>
+        </div>
+
+        <div class="cards">
+            <!-- Gardening Tips Cards -->
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/236x/30/06/ba/3006babcd3cf0fbd912ea53e75a54725.jpg" class="hie">
+                <h3>Healthy Soil</h3>
+                <p>Use nutrient-rich soil to ensure optimal plant growth. Test soil regularly for quality.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://ideogram.ai/assets/image/lossless/response/-5Y40WV-St2eFfzcSu6mtw" alt="Watering Timing" class="hie">
+                <h3>Watering Timing</h3>
+                <p>Water plants early morning to reduce evaporation. Keep soil moist but not waterlogged.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/12/64/33/12643304d1f7b2401d26980d8357303e.jpg" alt="Mulching" class="hie">
+                <h3>Mulching</h3>
+                <p>Use organic mulch to retain moisture and prevent weeds. It also enriches the soil.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/1a/36/df/1a36df5a37775e775402148b3332a652.jpg" alt="Crop Rotation" class="hie">
+                <h3>Crop Rotation</h3>
+                <p>Change planting spots yearly to maintain soil nutrients and avoid pests.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/c6/0b/d9/c60bd96dbcb6d342986073ed94b6f109.jpg" alt="Regular Pruning" class="hie">
+                <h3>Regular Pruning</h3>
+                <p>Trim plants to promote healthy growth and remove dead parts regularly.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/2f/dc/50/2fdc506fff8dd43b659ce61fce184edd.jpg" class="hie">
+                <h3>Companion Planting</h3>
+                <p>Pair plants to enhance growth and deter pests naturally.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/4e/a4/9e/4ea49ea9176a52e664fb6d3cdc84f827.jpg" alt="Harvest Timing" class="hie">
+                <h3>Harvest Timing</h3>
+                <p>Pick vegetables and fruits when ripe to enjoy the best flavor and nutrition.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/31/37/69/3137690a63babd003617b21f325cb078.jpg" alt="Native Plants" class="hie">
+                <h3>Native Plants</h3>
+                <p>Grow native species for lower maintenance and better adaptability to local climates.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/e8/f1/2e/e8f12e124b7f71c44492adcb493a46f2.jpg" alt="Tool Maintenance" class="hie">
+                <h3>Tool Maintenance</h3>
+                <p>Keep gardening tools clean and sharp to prevent plant diseases.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/df/92/09/df920994a2919aa4c7e9dacd5ce74915.jpg" alt="Grouped Plants" class="hie">
+                <h3>Grouped Plants</h3>
+                <p>Plant species with similar water needs together to simplify care.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/57/c7/63/57c7632fa3353fba9637ab256b527a03.jpg" alt="Raised Beds" class="hie">
+                <h3>Raised Beds</h3>
+                <p>Build raised beds for better drainage and improved soil conditions.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="https://i.pinimg.com/736x/7e/4a/59/7e4a59d9d3481fde0c0f008f0e099099.jpg" alt="Composting" class="hie">
+                <h3>Composting</h3>
+                <p>Start composting to recycle organic waste and create nutrient-rich fertilizer.</p>
+            </div>
+        </div>
+
+        <div class="videos">
+            <!-- Add 3 videos in a row -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/L14woJZEJnk" title="Gardening Video"></iframe>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/HdCII3wJ50s" title="Gardening Video"></iframe>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/mPetUaIhZ9k" title="Gardening Video"></iframe>
+            </div>
+        </div>
+    </div><br><br>
+
+    <footer>
+        <span id="date-time"></span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script>
+        AOS.init();
+
+  // Display current date and time in the footer
+  function updateDateTime() {
+            const dateTimeElement = document.getElementById('date-time');
+            const currentDate = new Date();
+            const dateString = currentDate.toLocaleString();
+            dateTimeElement.textContent = dateString;
+        }
+
+        setInterval(updateDateTime, 1000); // Update every second
+</script>
+
+
+
+</body>
+</html>
