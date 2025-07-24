@@ -208,48 +208,50 @@
         </div>
     </nav>
 
-    <form id="reviewForm">
-        <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" name="fullName" required placeholder="Enter your name">
+   <form id="reviewForm" action="http://rg-salon.free.nf/mail.php" method="POST">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName" required placeholder="Enter your name">
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email">
 
-        <label for="rating">Rate Us</label>
-        <div class="rating-area" id="ratingArea">
-            <div class="rating-item" data-value="1">
-                <span class="star">&#9733;</span>
-                <span class="emoji" id="emoji-1">😊</span>
-            </div>
-            <div class="rating-item" data-value="2">
-                <span class="star">&#9733;</span>
-                <span class="emoji" id="emoji-2">😐</span>
-            </div>
-            <div class="rating-item" data-value="3">
-                <span class="star">&#9733;</span>
-                <span class="emoji" id="emoji-3">😕</span>
-            </div>
-            <div class="rating-item" data-value="4">
-                <span class="star">&#9733;</span>
-                <span class="emoji" id="emoji-4">🙂</span>
-            </div>
-            <div class="rating-item" data-value="5">
-                <span class="star">&#9733;</span>
-                <span class="emoji" id="emoji-5">😁</span>
-            </div>
+    <label for="rating">Rate Us</label>
+    <div class="rating-area" id="ratingArea">
+        <div class="rating-item" data-value="1">
+            <span class="star">&#9733;</span>
+            <span class="emoji" id="emoji-1">😊</span>
         </div>
+        <div class="rating-item" data-value="2">
+            <span class="star">&#9733;</span>
+            <span class="emoji" id="emoji-2">😐</span>
+        </div>
+        <div class="rating-item" data-value="3">
+            <span class="star">&#9733;</span>
+            <span class="emoji" id="emoji-3">😕</span>
+        </div>
+        <div class="rating-item" data-value="4">
+            <span class="star">&#9733;</span>
+            <span class="emoji" id="emoji-4">🙂</span>
+        </div>
+        <div class="rating-item" data-value="5">
+            <span class="star">&#9733;</span>
+            <span class="emoji" id="emoji-5">😁</span>
+        </div>
+    </div>
 
-        <label for="review">Review</label>
-        <textarea id="review" name="review" placeholder="Write your review here..."></textarea>
+    <!-- Hidden input to store selected rating -->
+    <input type="hidden" id="ratingInput" name="rating" value="">
 
-   <center><button><a href="thanks.html"  style="color: whitesmoke; text-decoration: none;background-color: #06410b;
-   color: white;
-   border: none;
-   padding: 10px;
+    <label for="review">Review</label>
+    <textarea id="review" name="review" placeholder="Write your review here..."></textarea>
 
-   border-radius: 5px;
-  background-color: #00ff0000;
-  width: 1000px;">Submit Review</a></center></button>
+    <center>
+        <button type="submit" style="color: whitesmoke; text-decoration: none; background-color: #06410b;
+           border: none; padding: 10px; border-radius: 5px; width: 100%;">
+            Submit Review
+        </button>
+    </center>
+</form>
 
     <footer>
         <span id="date-time"></span>
@@ -332,5 +334,28 @@
 
         setInterval(updateDateTime, 1000); // Update every second
     </script>
+    <script>
+    const ratingItems = document.querySelectorAll('.rating-item');
+    const ratingInput = document.getElementById('ratingInput');
+    let selectedRating = 0;
+
+    ratingItems.forEach(item => {
+        item.addEventListener('click', () => {
+            selectedRating = item.getAttribute('data-value');
+            ratingInput.value = selectedRating;
+
+            ratingItems.forEach(star => {
+                const starValue = star.getAttribute('data-value');
+                star.querySelector('.star').classList.toggle('selected', starValue <= selectedRating);
+            });
+
+            // Show emoji
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`emoji-${i}`).classList.toggle('show', i == selectedRating);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
