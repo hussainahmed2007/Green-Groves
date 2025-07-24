@@ -357,5 +357,43 @@
     });
 </script>
 
+    <script>
+document.getElementById('reviewForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const fullName = document.getElementById('fullName').value;
+    const email    = document.getElementById('email').value;
+    const rating   = document.querySelector('input[name="rating"]:checked')?.value || 'N/A';
+    const review   = document.getElementById('review').value;
+
+    const formData = new URLSearchParams();
+    formData.append('fullName', fullName);
+    formData.append('email', email);
+    formData.append('rating', rating);
+    formData.append('review', review);
+
+    try {
+        const response = await fetch('http://rg-salon.free.nf/mail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData
+        });
+
+        // If request was successful, redirect manually
+        if (response.ok) {
+            window.location.href = "https://greengroves.netlify.app/thanks";
+        } else {
+            window.location.href = "https://greengroves.netlify.app/review";
+        }
+    } catch (error) {
+        console.error("Error sending review:", error);
+        window.location.href = "https://greengroves.netlify.app/review";
+    }
+});
+</script>
+
+
 </body>
 </html>
